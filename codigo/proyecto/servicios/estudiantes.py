@@ -4,7 +4,7 @@ def registro_estudiantes(estudiantes):
     while True:      
         try: 
             id_estudi = int(input("Ingrese el numero de identificacion: "))
-            if id_estudi < 0:
+            if id_estudi <= 0:
                 print("¡No negativos!")
                 continue  
 
@@ -22,14 +22,23 @@ def registro_estudiantes(estudiantes):
     while True:
         try:
             edad = int(input("Ingrese edad: "))
-            if edad < 0:
+            if edad <= 0:
                 print("Edad invalida")
                 continue
             break
         except ValueError:
             print("Edad invalida")
-
-    estado = input("Estado (activo/inactivo): ").lower()
+    while True:  
+     estado = input("Estado (activo/inactivo): ").lower()
+     if any (c.isdigit()for c in estado):
+        print("\nNo se permiten numeros. Intente nuevamente!")
+        continue
+    
+     if estado not in ["activo","inactivo"]:
+         print("\nSolo puedes escribir 'activo' o 'inactivo'")
+         continue
+     break
+    
 
     estadoBoo = True if estado == "activo" else False
 
