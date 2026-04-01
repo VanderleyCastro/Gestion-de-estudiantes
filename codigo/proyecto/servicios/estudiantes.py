@@ -4,7 +4,7 @@ def registro_estudiantes(estudiantes):
     while True:      
         try: 
             id_estudi = int(input("Ingrese el numero de identificacion: "))
-            if id_estudi <= 0:
+            if id_estudi < 0:
                 print("¡No negativos!")
                 continue  
 
